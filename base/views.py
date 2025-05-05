@@ -6,3 +6,4 @@ from .models import Task
 class TaskList(ListView):
     "Django view for displaying a list of tasks."
     model = Task
+    context_object_name = 'tasks'
