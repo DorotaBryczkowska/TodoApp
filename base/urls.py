@@ -1,7 +1,7 @@
 '# Django URL configuration for the base app'
 from django.urls import path
-from . import views
+from .views import TaskList
 
 urlpatterns = [
-    path('', views.task_list, name='tasks'),
+    path('', TaskList.as_view(), name='tasks'),
 ]

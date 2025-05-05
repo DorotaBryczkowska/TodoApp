@@ -1,9 +1,8 @@
 "Django view for the todo list application."
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views.generic.list import ListView
+from .models import Task
 
-def task_list(request):
-    """
-    View function that returns a simple HTTP response for the todo list.
-    """
-    return HttpResponse("Todo List")
+class TaskList(ListView):
+    "Django view for displaying a list of tasks."
+    model = Task
