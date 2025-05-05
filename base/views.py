@@ -13,4 +13,3 @@ class TaskDetail(DetailView):
     "Django view for displaying the details of a task."
     model = Task
     context_object_name = 'task'
-    # template_name = 'base/task_detail.html'
