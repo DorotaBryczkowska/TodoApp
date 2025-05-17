@@ -22,6 +22,13 @@ class TaskList(LoginRequiredMixin, ListView):
     model = Task
     context_object_name = 'tasks'
 
+    "User-specific task filtering."
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['tasks'] = context['tasks'].filter(user=self.request.user)
+        context['count'] = context['tasks'].filter(complete=False).count()
+        return context
+
 class TaskDetail(LoginRequiredMixin, DetailView):
     "Django view for displaying the details of a task."
     model = Task
