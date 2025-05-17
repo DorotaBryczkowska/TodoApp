@@ -22,24 +22,24 @@ class TaskList(LoginRequiredMixin, ListView):
     model = Task
     context_object_name = 'tasks'
 
-class TaskDetail(DetailView):
+class TaskDetail(LoginRequiredMixin, DetailView):
     "Django view for displaying the details of a task."
     model = Task
     context_object_name = 'task'
 
-class TaskCreate(CreateView):
+class TaskCreate(LoginRequiredMixin, CreateView):
     "Django view for creating a new task."
     model = Task
     fields = '__all__'
     success_url = reverse_lazy('tasks')
 
-class TaskUpdate(UpdateView):
+class TaskUpdate(LoginRequiredMixin, UpdateView):
     "Django view for updating an existing task."
     model = Task
     fields = '__all__'
     success_url = reverse_lazy('tasks')
 
-class TaskDelete(DeleteView):
+class TaskDelete(LoginRequiredMixin, DeleteView):
     "Django view for deleting a task."
     model = Task
     context_object_name = 'task'
